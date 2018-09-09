@@ -1,7 +1,10 @@
 FROM alpine:latest
 
-# Terraform versioin https://releases.hashicorp.com/terraform/
+RUN deluser guest ; delgroup users
+RUN addgroup -g 985 -S users
+RUN adduser -S -G users -u 1000 -s /bin/sh -h /home/mudrii mudrii
 
+# Terraform versioin https://releases.hashicorp.com/terraform/
 ENV TERRAFORM_VERSION=0.11.8
 #ENV TERRAFORM_SHA256SUM=6b8ce67647a59b2a3f70199c304abca0ddec0e49fd060944c26f666298e23418
 ENV TERRAFORM_SHA256SUM=84ccfb8e13b5fce63051294f787885b76a1fedef6bdbecf51c5e586c9e20c9b7
@@ -17,3 +20,5 @@ RUN apk --no-cache update && \
     rm -f terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     apk --purge del curl && \
     rm /var/cache/apk/*
+
+USER mudrii
