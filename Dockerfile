@@ -17,7 +17,6 @@ RUN apk --no-cache update && \
     sha256sum -cs terraform_${TERRAFORM_VERSION}_SHA256SUMS && \
     unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /bin && \
     rm -f terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
-    apk --purge del curl && \
-    rm /var/cache/apk/*
+    apk --purge del curl 
 
 USER mudrii
