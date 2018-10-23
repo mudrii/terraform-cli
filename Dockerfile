@@ -5,8 +5,8 @@ RUN addgroup -g 985 -S users
 RUN adduser -S -G users -u 1000 -s /bin/sh -h /home/mudrii mudrii
 
 # Terraform versioin https://releases.hashicorp.com/terraform/
-ENV TERRAFORM_VERSION=0.11.8
-ENV TERRAFORM_SHA256SUM=84ccfb8e13b5fce63051294f787885b76a1fedef6bdbecf51c5e586c9e20c9b7
+ENV TERRAFORM_VERSION=0.11.9
+ENV TERRAFORM_SHA256SUM=5d674e7b83945c37f7f14d0e4f655787dad86ba15b26e185604aa0c3812394ab
 
 RUN apk --no-cache update && \
     apk --no-cache add \
